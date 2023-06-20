@@ -1,9 +1,9 @@
 function downloadMarkdown(filename, text, layout, title, author) {
-  const frontMatter = `---
-layout: ${layout}
-title: ${title}
-author: ${author}
----\n`;
+  let frontMatter = `---\n`;
+  if (layout) frontMatter += `layout: ${layout}\n`;
+  if (title) frontMatter += `title: ${title}\n`;
+  if (author) frontMatter += `author: ${author}\n`;
+  frontMatter += `---\n`;
   const markdownText = frontMatter + text;
   const element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(markdownText));
