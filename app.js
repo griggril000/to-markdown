@@ -22,8 +22,12 @@ const markdownAuthor = document.querySelector('#markdown-author');
 
 downloadButton.addEventListener('click', () => {
   const markdownText = markdownContent.value;
-  const layout = markdownLayout.value;
-  const title = markdownTitle.value;
-  const author = markdownAuthor.value;
-  downloadMarkdown('myMarkdownFile.md', markdownText, layout, title, author);
+  if (markdownText.trim() === '') {
+    alert('Please enter markdown content before downloading');
+  } else {
+    const layout = markdownLayout.value;
+    const title = markdownTitle.value;
+    const author = markdownAuthor.value;
+    downloadMarkdown('myMarkdownFile.md', markdownText, layout, title, author);
+  }
 });
