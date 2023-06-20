@@ -3,7 +3,7 @@ function downloadMarkdown(filename, text, layout, title, author) {
   if (layout) frontMatter += `layout: ${layout}\n`;
   if (title) frontMatter += `title: ${title}\n`;
   if (author) frontMatter += `author: ${author}\n`;
-  frontMatter += `---\n`;
+  frontMatter += `---\n\n`;
   const markdownText = frontMatter + text;
   const element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(markdownText));
