@@ -16,11 +16,14 @@ author: ${author}
 
 const downloadButton = document.querySelector('#download-button');
 const markdownContent = document.querySelector('#markdown-content');
+const markdownLayout = document.querySelector('#markdown-layout');
+const markdownTitle = document.querySelector('#markdown-title');
+const markdownAuthor = document.querySelector('#markdown-author');
 
 downloadButton.addEventListener('click', () => {
   const markdownText = markdownContent.value;
-  const layout = 'post';
-  const title = 'My Markdown Post';
-  const author = 'Your Name';
+  const layout = markdownLayout.value;
+  const title = markdownTitle.value;
+  const author = markdownAuthor.value;
   downloadMarkdown('myMarkdownFile.md', markdownText, layout, title, author);
 });
